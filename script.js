@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
     const A4_WIDTH_PX = 842;
     const A4_HEIGHT_PX = 595;
@@ -72,7 +72,27 @@ document.addEventListener('DOMContentLoaded', () => {
             dateDisplay.textContent = dateInput.value;
         }
         if (studentNameInput && nameText) {
-            nameText.textContent = studentNameInput.value || "Имя ученика";
+            const fullText = studentNameInput.value || "Имя ученика";
+            const words = fullText.split(/\s+/); м
+
+            nameText.innerHTML = '';
+
+            words.forEach(word => {
+                if (word.length > 0) { в)
+                    const span = document.createElement('span');
+                    span.textContent = word;
+                    nameText.appendChild(span);
+                    if (words.indexOf(word) < words.length - 1 || words.length === 1 && word.length > 0) {
+                         nameText.appendChild(document.createElement('br'));
+                    }
+                }
+            });
+            // Если поле пустое, убедитесь, что отображается текст-заполнитель
+            if (fullText === "Имя ученика" && studentNameInput.value === "") {
+                nameText.textContent = "Имя ученика";
+            } else if (fullText.trim() === "") { // Если ввели только пробелы
+                 nameText.textContent = ""; // Очищаем или устанавливаем другое поведение по желанию
+            }
         }
         if (levelSelect && levelDisplay) {
             const selectedLevel = levelSelect.value;
