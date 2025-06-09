@@ -1,4 +1,4 @@
-    document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
 
     const A4_WIDTH_PX = 842;
     const A4_HEIGHT_PX = 595;
@@ -49,8 +49,8 @@
         const containerWidth = a4Page.parentElement.clientWidth;
         const availableWidth = containerWidth - 30;
         const scale = Math.min(1, availableWidth / A4_WIDTH_PX);
-        a4Page.style.transform = `scale(${scale})`;
-        a4Page.style.marginBottom = `${(A4_HEIGHT_PX * scale) - A4_HEIGHT_PX}px`;
+        a4Page.style.transform = `scale(1)`;
+        a4Page.style.marginBottom = `0px`;
     }
 
     function showMessageBox(message, autoHide = true, duration = 2000) {
@@ -109,7 +109,7 @@
             });
             pdf.addImage(imgData, 'JPEG', 0, 0, A4_WIDTH_PX, A4_HEIGHT_PX, null, 'FAST');
             pdf.save(`Сертификат_${studentNameInput.value || 'ученик'}.pdf`);
-            showMessageBox("PDF успешно сгенерирован!", true, 3000);
+            showMessageBox("PDF успешно сгенерирован!", true, 500);
         } catch (error) {
             console.error("Ошибка при генерации PDF:", error);
             showMessageBox(`Ошибка при генерации PDF: ${error.message}`, true, 5000);
