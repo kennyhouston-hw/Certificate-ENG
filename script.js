@@ -73,12 +73,12 @@
         }
         if (studentNameInput && nameText) {
             const fullText = studentNameInput.value || "Имя ученика";
-            const words = fullText.split(/\s+/); м
+            const words = fullText.split(/\s+/); 
 
             nameText.innerHTML = '';
 
             words.forEach(word => {
-                if (word.length > 0) { в)
+                if (word.length > 0) { 
                     const span = document.createElement('span');
                     span.textContent = word;
                     nameText.appendChild(span);
