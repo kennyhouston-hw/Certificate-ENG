@@ -1,0 +1,222 @@
+:root {
+    --a4-width: 842px;
+    --a4-height: 595px;
+    --primary-blue: #0A84FF;
+    --primary-blue-hover: #2563eb;
+    --border-color: #cbd5e0;
+    --border-color-focus: #3b82f6;
+    --text-color-light: #fff;
+    --bg-light: #f5f6f7;
+    --bg-card: #f8fafc;
+    --border-radius-lg: 32px;
+    --border-radius-md: 16px;
+    --border-radius-sm: 10px;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--bg-light);  
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;  
+    width: 100%;
+    background-color: var(--text-color-light);
+    padding: 20px;
+    border-radius: var(--border-radius-lg);  
+}
+
+@media (min-width: 1024px) {
+    .container {
+        flex-direction: row;  
+    }
+}
+
+.input-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    width: 360px;
+    border-radius: var(--border-radius-md);  
+    background-color: var(--bg-card);  
+}
+
+.html-page-section {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+#a4Page {
+    position: relative;  
+    background-color: var(--text-color-light);
+    overflow: hidden;  
+    width: var(--a4-width);  
+    height: var(--a4-height);  
+    transform-origin: top left;  
+    transition: background-image 0.5s ease-in-out;  
+}
+
+#backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    object-fit: cover;  
+    z-index: 0;
+}
+
+/* Общие стили для текста на сертификате */
+.page-text, .page-text-caption, .date-text, .level {
+    position: absolute;
+    z-index: 1;  
+    color: var(--text-color-light); 
+    word-wrap: break-word;
+    text-align: left; 
+    left: 48px;  
+}
+
+.page-text-caption {
+    font-size: 18px;
+    line-height: 24px;
+    max-width: 300px;
+}
+
+.date-text {
+    top: 40px; 
+    right: 48px;
+    left: auto; 
+    text-align: right;
+    font-size: 16px;
+}
+
+#name-wrapper {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    top: 112px;
+    left: 48px;
+    width: calc(100% - 96px);
+}
+
+#nameText {
+    position: static; 
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 64px;  
+}
+
+#levelText {
+    bottom: 48px;
+    font-size: 16px;
+}
+
+#captionText{
+    color:#fff;
+}
+
+.level {
+    top: 400px;  
+    font-size: 92px;
+    font-weight: 700;
+    line-height: 1;  
+}
+
+/* Стили для изображений */
+#logoImage {
+    position: absolute;
+    z-index: 1;
+    top: 48px;
+    left: 48px;
+    width: 145px;  
+}
+
+#holoImage {
+    position: absolute;
+    z-index: 1;
+    bottom: 48px;
+    right: 48px;
+    width: 96px;  
+    aspect-ratio: 1;
+}
+
+#flagImage {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    right: 88px;
+    height: 274px;  
+}
+
+/* Стили для элементов формы */
+.form-input {
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);  
+    font-size: 16px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.2s;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--border-color-focus);  
+}
+
+/* Кастомная стрелка для select, без !important */
+select.form-input {
+    appearance: none;  
+    -webkit-appearance: none;  
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgdmlld0JveD0iMCAwIDE2IDE2Ij48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiMyNjI2MjYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIxIiBkPSJNMTEuMjUgMTAuNzVMOCAxNC4yNWwtMy4yNS0zLjVtNi41LTUuNUw4IDEuNzVsLTMuMjUgMy41Ii8+PC9zdmc+");
+    background-repeat: no-repeat;  
+    background-position: right 0.75rem center;
+    background-size: 1.5em;  
+    padding-right: 2.4rem;  
+}
+
+select.form-input::-ms-expand {
+    display: none;  
+}
+
+/* Стили для кнопки */
+.button {
+    padding: 12px 20px;
+    background-color: var(--primary-blue);  
+    color: white;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: background-color 0.2s, transform 0.1s;  
+}
+
+.button:hover {
+    background-color: var(--primary-blue-hover);  
+    transform: translateY(-1px);
+}
+
+.button:active {
+    transform: translateY(0);
+}
+
+/* Стили для окна сообщений */
+#messageBox {
+    z-index: 1000;  
+}
