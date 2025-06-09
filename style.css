@@ -1,8 +1,8 @@
 :root {
     --a4-width: 842px;
     --a4-height: 595px;
-    --primary-blue: #0A84FF;
-    --primary-blue-hover: #2563eb;
+    --primary-blue: #262626;
+    --primary-blue-hover: #000;
     --border-color: #cbd5e0;
     --border-color-focus: #3b82f6;
     --text-color-light: #fff;
@@ -78,7 +78,6 @@ body {
     z-index: 0;
 }
 
-/* Общие стили для текста на сертификате */
 .page-text, .page-text-caption, .date-text, .level {
     position: absolute;
     z-index: 1;  
@@ -99,7 +98,7 @@ body {
     right: 48px;
     left: auto; 
     text-align: right;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 #name-wrapper {
@@ -127,6 +126,7 @@ body {
 
 #captionText{
     color:#fff;
+    max-width: 300px;
 }
 
 .level {
@@ -136,13 +136,12 @@ body {
     line-height: 1;  
 }
 
-/* Стили для изображений */
 #logoImage {
     position: absolute;
     z-index: 1;
     top: 48px;
     left: 48px;
-    width: 145px;  
+    width: 131px;  
 }
 
 #holoImage {
@@ -150,7 +149,7 @@ body {
     z-index: 1;
     bottom: 48px;
     right: 48px;
-    width: 96px;  
+    width: 112px;  
     aspect-ratio: 1;
 }
 
@@ -162,7 +161,6 @@ body {
     height: 274px;  
 }
 
-/* Стили для элементов формы */
 .form-input {
     padding: 10px 12px;
     border: 1px solid var(--border-color);
@@ -178,7 +176,6 @@ body {
     border-color: var(--border-color-focus);  
 }
 
-/* Кастомная стрелка для select, без !important */
 select.form-input {
     appearance: none;  
     -webkit-appearance: none;  
@@ -194,7 +191,6 @@ select.form-input::-ms-expand {
     display: none;  
 }
 
-/* Стили для кнопки */
 .button {
     padding: 12px 20px;
     background-color: var(--primary-blue);  
@@ -216,7 +212,6 @@ select.form-input::-ms-expand {
     transform: translateY(0);
 }
 
-/* Стили для окна сообщений */
 #messageBox {
     z-index: 1000;  
 }
