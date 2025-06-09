@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Генератор сертификатов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://kennyhouston-hw.github.io/Certificate-ENG/style.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="input-section">
+            <div class="mb-4">
+                <label for="dateInputField" class="block text-gray-600 text-sm mb-2">Дата:</label>
+                <input type="date" id="dateInputField" class="form-input">
+            </div>
+            <div class="mb-4">
+                <label for="studentNameInput" class="block text-gray-600 text-sm mb-2">Имя ученика:</label>
+                <input type="text" id="studentNameInput" placeholder="Имя ученика" class="form-input">
+            </div>
+            <div class="mb-6">
+                <label for="levelSelect" class="block text-gray-600 text-sm mb-2">Уровень:</label>
+                <select id="levelSelect" class="form-input">
+                    <option value="">Выберите уровень</option>
+                    <option value="Pre A1">Pre A1</option>
+                    <option value="A1">A1</option>
+                    <option value="A1+">A1+</option>
+                    <option value="A2">A2</option>
+                </select>
+            </div>
+            <button id="exportPdfBtn" class="button">
+                Экспорт в PDF
+            </button>
+        </div>
+
+        <div class="html-page-section">
+            <div id="a4Page">
+                <img id="logoImage" alt="Logo">
+                <img id="backgroundImage" alt="Background Image">
+                <p id="dateDisplay" class="date-text">2025</p>
+                <div id="name-wrapper">
+                    <p id="nameText" class="page-text">Константин Константинопольский</p>
+                    <p id="captionText" style="margin-top:16px;">прошёл&nbsp;/ прошла вводный урок по&nbsp;английскому языку</p>
+                </div>
+                <p id="levelText" class="page-text-caption">Уровень владения языком</p>
+                <span id="levelDisplay" class="level" style="min-height:80px;">Pre A1</span>
+                <img id="flagImage" src="https://static.tildacdn.com/tild3166-3538-4237-a565-653735663961/133547200_847d7b5b-7.png" alt="Flag">
+                <img id="holoImage" alt="Hologram">
+            </div>
+        </div>
+    </div>
+
+    <div id="messageBox" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl text-center">
+            <p id="messageBoxText" class="text"></p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://kennyhouston-hw.github.io/Certificate-ENG/script.js"></script>
+</body>
+</html>
