@@ -2,8 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const A4_WIDTH_PX = 842;
     const A4_HEIGHT_PX = 595;
-
-
     const IMAGE_URLS = {
         background: {
             'Pre A1': 'https://static.tildacdn.com/tild3536-3336-4837-b261-343363643766/bg.svg',
@@ -35,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const backgroundImage = document.getElementById('backgroundImage');
     const holoImage = document.getElementById('holoImage');
 
+    // --- Вспомогательные функции (без изменений) ---
     function debounce(func, delay = 250) {
         let timeout;
         return (...args) => {
@@ -68,6 +67,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    // --- ИЗМЕНЕНИЕ 2: Обновляем логику этой функции ---
+    /**
      * Обновляет текстовое содержимое И ФОН сертификата на основе данных из полей ввода.
      */
     function updateCertificateContent() {
@@ -80,21 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
         if (levelSelect && levelDisplay) {
             const selectedLevel = levelSelect.value;
             levelDisplay.textContent = selectedLevel;
-
-            // НОВАЯ ЛОГИКА: Обновляем фон
-            // Ищем URL для выбранного уровня. Если его нет, используем URL по умолчанию.
             const newBackgroundUrl = IMAGE_URLS.background[selectedLevel] || IMAGE_URLS.background.default;
-            
-            // Меняем фон, только если он действительно отличается, чтобы избежать лишней загрузки
             if (backgroundImage.src !== newBackgroundUrl) {
                 backgroundImage.src = newBackgroundUrl;
             }
         }
     }
 
-    /**
-     * Экспортирует текущее состояние сертификата в PDF. (без изменений)
-     */
     async function exportToPdf() {
         if (!a4Page) {
             showMessageBox("Ошибка: Элемент страницы для экспорта не найден.");
@@ -130,10 +123,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- Начальная настройка и привязка событий ---
     function initializeApp() {
-        // Устанавливаем изображения из констант
-        // ИЗМЕНЕНИЕ 3: При запуске ставим фон по умолчанию
         backgroundImage.src = IMAGE_URLS.background.default;
         logoImage.src = IMAGE_URLS.logo;
         holoImage.src = IMAGE_URLS.holo;
