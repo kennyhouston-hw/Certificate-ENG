@@ -150,6 +150,8 @@ body {
     right: 44px;
     width: 112px;  
     aspect-ratio: 1;
+    box-shadow: 0 -5px 12px rgb(0 0 0 / 10%);
+    border-radius: 999px;
 }
 
 #flagImage {
