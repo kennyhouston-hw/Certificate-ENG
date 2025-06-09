@@ -147,8 +147,8 @@ body {
 #holoImage {
     position: absolute;
     z-index: 1;
-    bottom: 48px;
-    right: 48px;
+    bottom: 32px;
+    right: 44px;
     width: 112px;  
     aspect-ratio: 1;
 }
