@@ -155,9 +155,9 @@ body {
 #flagImage {
     position: absolute;
     z-index: 1;
-    bottom: 0;
-    right: 88px;
-    height: 274px;  
+    bottom: -16px;
+    right: -42px;
+    height: 342px;  
 }
 
 .form-input {
