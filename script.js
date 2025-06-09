@@ -1,12 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', () => {
 
     const A4_WIDTH_PX = 842;
     const A4_HEIGHT_PX = 595;
     const IMAGE_URLS = {
         background: {
             'Pre A1': 'https://static.tildacdn.com/tild3536-3336-4837-b261-343363643766/bg.svg',
-            'A1': 'https://static.tildacdn.com/tild6466-3361-4135-a563-653739613033/bg_orange.svg',
-            'A1+': 'https://static.tildacdn.com/tild6466-3361-4135-a563-653739613033/bg_orange.svg',
+            'A1': 'https://static.tildacdn.com/tild3635-3365-4034-b365-613032363634/bg_orange.svg',
+            'A1+': 'https://static.tildacdn.com/tild3635-3365-4034-b365-613032363634/bg_orange.svg',
             'A2': 'https://static.tildacdn.com/tild3636-6432-4964-a261-366131353962/bg_violet.svg',
             // Фон по умолчанию, если уровень не выбран или для него нет фона
             'default': 'https://static.tildacdn.com/tild3536-3336-4837-b261-343363643766/bg.svg'
@@ -67,10 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- ИЗМЕНЕНИЕ 2: Обновляем логику этой функции ---
-    /**
-     * Обновляет текстовое содержимое И ФОН сертификата на основе данных из полей ввода.
-     */
     function updateCertificateContent() {
         if (dateInput && dateDisplay) {
             dateDisplay.textContent = dateInput.value;
@@ -100,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         a4Page.style.marginBottom = '0';
         try {
             const canvas = await html2canvas(a4Page, {
-                scale: 4,
+                scale: 6,
                 useCORS: true,
                 logging: false
             });
