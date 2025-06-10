@@ -68,41 +68,62 @@
     }
 
     function updateCertificateContent() {
-        if (dateInput && dateDisplay) {
-            dateDisplay.textContent = dateInput.value;
-        }
-        if (studentNameInput && nameText) {
-            const fullText = studentNameInput.value || "Имя ученика";
-            const words = fullText.split(/\s+/); 
+    // Массив названий месяцев для русского языка
+    const monthNamesRu = [
+        "января", "февраля", "марта", "апреля", "мая", "июня",
+        "июля", "августа", "сентября", "октября", "ноября", "декабря"
+    ];
 
-            nameText.innerHTML = '';
-
-            words.forEach(word => {
-                if (word.length > 0) { 
-                    const span = document.createElement('span');
-                    span.textContent = word;
-                    nameText.appendChild(span);
-                    if (words.indexOf(word) < words.length - 1 || words.length === 1 && word.length > 0) {
-                         nameText.appendChild(document.createElement('br'));
-                    }
-                }
-            });
-            // Если поле пустое, убедитесь, что отображается текст-заполнитель
-            if (fullText === "Имя ученика" && studentNameInput.value === "") {
-                nameText.textContent = "Имя ученика";
-            } else if (fullText.trim() === "") { // Если ввели только пробелы
-                 nameText.textContent = ""; // Очищаем или устанавливаем другое поведение по желанию
-            }
-        }
-        if (levelSelect && levelDisplay) {
-            const selectedLevel = levelSelect.value;
-            levelDisplay.textContent = selectedLevel;
-            const newBackgroundUrl = IMAGE_URLS.background[selectedLevel] || IMAGE_URLS.background.default;
-            if (backgroundImage.src !== newBackgroundUrl) {
-                backgroundImage.src = newBackgroundUrl;
-            }
+    // Обновление и форматирование даты
+    if (dateInput && dateDisplay) {
+        const dateValue = dateInput.value;
+        if (dateValue) {
+            const date = new Date(dateValue);
+            const day = date.getDate();
+            const monthIndex = date.getMonth();
+            const year = date.getFullYear();
+            // Форматируем и отображаем дату в русском формате
+            dateDisplay.textContent = `${day} ${monthNamesRu[monthIndex]}, ${year}`;
+        } else {
+            // Очищаем поле, если дата не выбрана
+            dateDisplay.textContent = '';
         }
     }
+
+    // Обновление имени ученика (логика без изменений)
+    if (studentNameInput && nameText) {
+        const fullText = studentNameInput.value || "Имя ученика";
+        const words = fullText.split(/\s+/);
+
+        nameText.innerHTML = '';
+
+        words.forEach(word => {
+            if (word.length > 0) {
+                const span = document.createElement('span');
+                span.textContent = word;
+                nameText.appendChild(span);
+                if (words.indexOf(word) < words.length - 1 || words.length === 1 && word.length > 0) {
+                    nameText.appendChild(document.createElement('br'));
+                }
+            }
+        });
+        if (fullText === "Имя ученика" && studentNameInput.value === "") {
+            nameText.textContent = "Имя ученика";
+        } else if (fullText.trim() === "") {
+            nameText.textContent = "";
+        }
+    }
+
+    // Обновление уровня и фона (логика без изменений)
+    if (levelSelect && levelDisplay) {
+        const selectedLevel = levelSelect.value;
+        levelDisplay.textContent = selectedLevel;
+        const newBackgroundUrl = IMAGE_URLS.background[selectedLevel] || IMAGE_URLS.background.default;
+        if (backgroundImage.src !== newBackgroundUrl) {
+            backgroundImage.src = newBackgroundUrl;
+        }
+    }
+}
 
     async function exportToPdf() {
         if (!a4Page) {
