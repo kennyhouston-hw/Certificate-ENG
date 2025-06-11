@@ -11,7 +11,6 @@
             'default': 'https://static.tildacdn.com/tild3536-3336-4837-b261-343363643766/bg.svg'
         },
         logo: 'https://static.tildacdn.com/tild6135-6461-4964-b365-376634663433/HWS__mono_full_white.svg',
-        // ✨ ИЗМЕНЕНИЕ: Добавляем разные URL для holo в зависимости от уровня
         holo: {
             'Pre A1': 'https://static.tildacdn.com/tild3661-6638-4634-b939-343036386631/pre_a1.png',
             'A1': 'https://static.tildacdn.com/tild6338-3066-4035-b434-356634353963/A1.png',
@@ -21,7 +20,7 @@
         }
     };
 
-    // --- Ссылки на DOM-элементы ---
+    // Ссылки на DOM-элементы
     const a4Page = document.getElementById('a4Page');
     const exportPdfBtn = document.getElementById('exportPdfBtn');
     const dateInput = document.getElementById('dateInputField');
@@ -113,7 +112,7 @@
             }
         }
 
-        // ✨ ИЗМЕНЕНИЕ: Обновляем и фон, и holo
+        // Обновляем и фон, и holo
         if (levelSelect && levelDisplay) {
             const selectedLevel = levelSelect.value;
             levelDisplay.textContent = selectedLevel;
